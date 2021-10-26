@@ -4,9 +4,7 @@ default:
   enable: true
   replace-by: "*"
   values:
-    - ""
-    - ""
-    - ""
+    - "nt"
 another-group:
   skip-permission: ""
   enable: true
