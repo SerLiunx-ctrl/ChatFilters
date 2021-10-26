@@ -45,6 +45,10 @@ public class FiltersManager {
         return null;
     }
 
+    public List<FilterGroup> getFilterGroups(){
+        return this.filterGroups;
+    }
+
     public String replaceString(String raw){
         for(FilterGroup f: filterGroups){
 //            plugin.getLogger().info(f.getGroupName());
