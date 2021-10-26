@@ -18,6 +18,10 @@ public final class ChatFilters extends JavaPlugin {
         this.getServer().getPluginManager().registerEvents(new AsyncPlayerChat(this),this);
         this.saveDefaultConfig();
         this.builder();
+
+        for (String s : filtersManager.getFilterGroup("another-group").getValues()){
+            this.getLogger().info(s);
+        }
     }
 
     public void reload(){

@@ -8,7 +8,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import java.io.File;
 
 public class FiltersFile implements IFiles{
-    private ChatFilters plugin;
+    private final ChatFilters plugin;
     private FileConfiguration filtersConfig = null;
     private File filtersFile = null;
 

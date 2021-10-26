@@ -1,19 +1,18 @@
 #过滤器
-groups:
-  default:
-    skip-permission: "chatfilters.skip.default"
-    enable: true
-    replace-by: "*"
-    values:
-      - ""
-      - ""
-      - ""
-  another:
-    skip-permission: ""
-    enable: true
-    replace-by: "我爱你"
-    values:
-      - "草"
-      - "傻逼"
-      - "你妈逼"
-      - "你麻痹"
+default:
+  skip-permission: "chatfilters.skip.default"
+  enable: true
+  replace-by: "*"
+  values:
+    - ""
+    - ""
+    - ""
+another-group:
+  skip-permission: ""
+  enable: true
+  replace-by: "我爱你"
+  values:
+    - "草"
+    - "傻逼"
+    - "你妈逼"
+    - "你麻痹"
