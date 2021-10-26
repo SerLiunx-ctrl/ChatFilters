@@ -1,5 +1,4 @@
 package me.serliunx.chatfilters.files;
 
-public class Filters {
-
+public class MessageFile {
 }
