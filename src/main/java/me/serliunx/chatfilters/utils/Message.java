@@ -12,16 +12,6 @@ public class Message {
     }
 
     public static void sendMessage(CommandSender sender,String str){
-
+        sender.sendMessage(str);
     }
-
-    public static void sendMessageList(Player player, List<String> str){
-
-    }
-
-    public static void sendMessageList(CommandSender sender,List<String> str){
-
-    }
-
-
 }

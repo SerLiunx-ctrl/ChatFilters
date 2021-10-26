@@ -1,6 +1,7 @@
 package me.serliunx.chatfilters;
 
 import me.serliunx.chatfilters.utils.FilterGroup;
+import me.serliunx.chatfilters.utils.Message;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -37,7 +38,7 @@ public class Commands implements CommandExecutor {
 
     private void listAllGroups(CommandSender sender){
         for(FilterGroup f:plugin.getFilters().getFilterGroups()){
-            sender.sendMessage(f.getGroupName());
+            Message.sendMessage(sender,f.getGroupName());
         }
     }
 }

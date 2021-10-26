@@ -2,7 +2,7 @@ package me.serliunx.chatfilters.files;
 
 import org.bukkit.configuration.file.FileConfiguration;
 
-public class MessageFile implements IFiles{
+public class LanguageFile implements IFiles{
     @Override
     public void reloadConfig(boolean onReload) {
 
