@@ -21,8 +21,10 @@ public class FiltersManager {
     }
 
     public void loadFromFile(){
+        file.reloadConfig(true);
        this.config = file.getConfiguration();
        try{
+           filterGroups.clear();
            for(String gs:config.getKeys(false)){
                filterGroups.add(new FilterGroup(
                        gs,config.getString(gs+".skip-permission"),
@@ -41,6 +43,19 @@ public class FiltersManager {
                 return g;
         }
         return null;
+    }
 
+    public String replaceString(String raw){
+        for(FilterGroup f: filterGroups){
+//            plugin.getLogger().info(f.getGroupName());
+            if(!f.getEnable()) break;
+            for(String s:f.getValues()){
+                if(raw.contains(s)){
+//                    plugin.getLogger().info("find one!");
+                    raw = raw.replace(s,f.getReplace());
+                }
+            }
+        }
+        return raw;
     }
 }

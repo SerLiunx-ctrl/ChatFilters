@@ -26,6 +26,8 @@ public final class ChatFilters extends JavaPlugin {
 
     public void reload(){
         this.reloadConfig();
+        filtersManager.loadFromFile();
+
     }
 
     public FiltersManager getFilters(){

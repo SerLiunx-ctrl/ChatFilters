@@ -19,7 +19,7 @@ public class FiltersFile implements IFiles{
 
     @Override
     public void reloadConfig(boolean onReload){
-        if(filtersFile == null | onReload)
+        if(filtersFile == null || onReload)
             this.filtersFile = new File(this.plugin.getDataFolder(),"filters.yml");
         this.filtersConfig = YamlConfiguration.loadConfiguration(this.filtersFile);
     }
