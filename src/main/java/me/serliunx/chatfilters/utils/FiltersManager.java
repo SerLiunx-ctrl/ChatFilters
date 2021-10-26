@@ -11,4 +11,8 @@ public class FiltersManager {
         this.plugin = plugin;
         this.file = file;
     }
+
+    public void loadFromFile(){
+
+    }
 }

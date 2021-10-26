@@ -2,8 +2,8 @@ package me.serliunx.chatfilters;
 
 import me.serliunx.chatfilters.events.AsyncPlayerChat;
 import me.serliunx.chatfilters.files.FiltersFile;
-
 import me.serliunx.chatfilters.utils.FiltersManager;
+
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Objects;
