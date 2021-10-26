@@ -1,0 +1,17 @@
+#过滤器
+groups:
+  default:
+    skip-permission: "chatfilters.skip.default"
+    replace-by: "*"
+    values:
+      - ""
+      - ""
+      - ""
+  another:
+    skip-permission: ""
+    replace-by: "我爱你"
+    values:
+      - "草"
+      - "傻逼"
+      - "你妈逼"
+      - "你麻痹"
