@@ -1,0 +1,5 @@
+#
+# ChatFilters 语言文件
+#
+
+filters_load_failure: "过滤器载入失败,请检查你的配置文件格式是否有误。"
