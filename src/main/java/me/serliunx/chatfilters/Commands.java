@@ -26,13 +26,14 @@ public class Commands implements CommandExecutor {
             case "list":
                 listAllGroups(sender);
             default:
-
+                showHelp(sender);
         }
         return false;
     }
 
-    private void showHelp(){
-
+    private void showHelp(CommandSender sender){
+//        plugin.getLang().getTranslate("help_information");
+//        Message.sendMessage();
     }
 
 

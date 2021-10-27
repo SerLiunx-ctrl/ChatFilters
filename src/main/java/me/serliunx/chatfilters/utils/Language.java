@@ -5,12 +5,14 @@ import me.serliunx.chatfilters.files.LanguageFile;
 import org.bukkit.configuration.file.FileConfiguration;
 
 import java.util.HashMap;
+import java.util.List;
 
 public class Language {
     private final ChatFilters plugin;
     private final LanguageFile file;
     private FileConfiguration config;
     public HashMap<String,String> lang = new HashMap<String,String>();
+    public HashMap<String,List<String>> langList= new HashMap<String,List<String>>();
 
 
     public Language(ChatFilters plugin,LanguageFile file){
@@ -31,6 +33,11 @@ public class Language {
 
     public String getTranslate(String rawText){
         return lang.getOrDefault(rawText, "language error!");
+    }
+
+    public List<String> getTranslateList(String targetName){
+//        return lang.get
+        return null;
     }
 
 }
