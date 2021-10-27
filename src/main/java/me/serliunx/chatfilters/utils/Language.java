@@ -32,4 +32,5 @@ public class Language {
     public String getTranslate(String rawText){
         return lang.getOrDefault(rawText, "language error!");
     }
+
 }
