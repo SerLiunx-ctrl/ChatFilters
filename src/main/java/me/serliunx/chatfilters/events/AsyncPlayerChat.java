@@ -1,6 +1,7 @@
 package me.serliunx.chatfilters.events;
 
 import me.serliunx.chatfilters.ChatFilters;
+
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
