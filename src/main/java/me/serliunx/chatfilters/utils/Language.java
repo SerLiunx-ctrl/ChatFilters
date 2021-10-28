@@ -41,12 +41,12 @@ public class Language {
         }
     }
 
-    public String getTranslate(String rawText){
-        return lang.getOrDefault(rawText, errorLang);
+    public String getTranslate(String pos){
+        return lang.getOrDefault(pos, errorLang);
     }
 
-    public List<String> getTranslateList(String rawText){
-        return langList.getOrDefault(rawText,new ArrayList<>
+    public List<String> getTranslateList(String pos){
+        return langList.getOrDefault(pos,new ArrayList<>
                 (Arrays.asList(errorLang,errorLang)));
     }
 
