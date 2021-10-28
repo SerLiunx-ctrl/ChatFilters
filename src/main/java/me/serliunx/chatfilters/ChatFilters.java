@@ -21,12 +21,12 @@ public final class ChatFilters extends JavaPlugin {
         this.saveDefaultConfig();
         this.register();
         this.builder();
+        getLogger().info(langFile.getConfiguration().getKeys(false).toString());
     }
 
     public void reload(){
         this.reloadConfig();
         filtersManager.loadFromFile();
-
     }
 
     public FiltersManager getFilters(){

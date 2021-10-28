@@ -19,12 +19,18 @@ public class Commands implements CommandExecutor {
             return  false;
         if(!sender.hasPermission("chatfilters.admin"))
             return false;
+        if(args.length < 1){
+            showHelp(sender);
+            return false;
+        }
         switch (args[0]) {
             case "reload":
                 this.plugin.reload();
-                sender.sendMessage("successful reloaded!");
+                Message.sendMessage(sender,plugin.getLang().getTranslate("reloaded"));
+                break;
             case "list":
                 listAllGroups(sender);
+                break;
             default:
                 showHelp(sender);
         }
@@ -32,8 +38,8 @@ public class Commands implements CommandExecutor {
     }
 
     private void showHelp(CommandSender sender){
-//        plugin.getLang().getTranslate("help_information");
-//        Message.sendMessage();
+        for(String s:plugin.getLang().getTranslateList("help_information"))
+            Message.sendMessage(sender,s);
     }
 
 
