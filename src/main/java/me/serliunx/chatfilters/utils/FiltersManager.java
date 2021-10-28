@@ -17,10 +17,10 @@ public class FiltersManager {
     public FiltersManager(ChatFilters plugin, FiltersFile file){
         this.plugin = plugin;
         this.file = file;
-        loadFromFile();
+        reload();
     }
 
-    public void loadFromFile(){
+    private void loadFromFile(){
         file.reloadConfig(true);
        this.config = file.getConfiguration();
        try{
@@ -35,6 +35,17 @@ public class FiltersManager {
        }catch(Exception ex){
            plugin.getLogger().info("过滤器载入失败!");
        }
+    }
+
+    private void loadFromMysql(){
+        if(!plugin.useMysql)
+            return;
+        plugin.getLogger().info("loaded from mysql.");
+    }
+
+    public void reload(){
+        loadFromFile();
+        loadFromMysql();
     }
 
     public FilterGroup getFilterGroup(String name){

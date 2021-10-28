@@ -15,6 +15,7 @@ public final class ChatFilters extends JavaPlugin {
     public FiltersManager filtersManager;
     public LanguageFile langFile;
     public Language lang;
+    public boolean useMysql = false;
 
     @Override
     public void onEnable() {
@@ -26,7 +27,7 @@ public final class ChatFilters extends JavaPlugin {
 
     public void reload(){
         this.reloadConfig();
-        filtersManager.loadFromFile();
+        filtersManager.reload();
     }
 
     public FiltersManager getFilters(){
