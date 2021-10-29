@@ -6,6 +6,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
+import java.io.IOException;
 
 public class FiltersFile implements IFiles{
     private final ChatFilters plugin;
@@ -36,5 +37,9 @@ public class FiltersFile implements IFiles{
         if(filtersConfig == null)
             reloadConfig(false);
         return this.filtersConfig;
+    }
+
+    public void saveConfigFile() throws IOException{
+
     }
 }

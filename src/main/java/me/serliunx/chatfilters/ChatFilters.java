@@ -16,6 +16,7 @@ public final class ChatFilters extends JavaPlugin {
     public LanguageFile langFile;
     public Language lang;
     public boolean useMysql = false;
+    public boolean filterEdited = false;
 
     @Override
     public void onEnable() {

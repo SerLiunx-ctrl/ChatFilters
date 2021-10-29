@@ -36,6 +36,10 @@ public class Commands implements CommandExecutor {
                 break;
             case "new":
                 newGroup(args,sender);
+                break;
+            case "save":
+                saveToFile(sender);
+                break;
             default:
                 showHelp(sender);
         }
@@ -57,6 +61,11 @@ public class Commands implements CommandExecutor {
     private void newGroup(String[] args,CommandSender sender){
         if(!(args.length == 2))
             showHelp(sender);
+    }
+
+    private void saveToFile(CommandSender sender){
+        if(!plugin.filterEdited)
+            Message.sendMessage(sender,plugin.getLang().getTranslate(""));
     }
 
     private void addFilter(String[] args,CommandSender sender){
