@@ -34,6 +34,8 @@ public class Commands implements CommandExecutor {
             case "add":
                 addFilter(args,sender);
                 break;
+            case "new":
+                newGroup(args,sender);
             default:
                 showHelp(sender);
         }
@@ -50,6 +52,11 @@ public class Commands implements CommandExecutor {
         for(FilterGroup f:plugin.getFilters().getFilterGroups()){
             Message.sendMessage(sender,f.getGroupName());
         }
+    }
+
+    private void newGroup(String[] args,CommandSender sender){
+        if(!(args.length == 2))
+            showHelp(sender);
     }
 
     private void addFilter(String[] args,CommandSender sender){

@@ -74,6 +74,10 @@ public class FiltersManager {
         return raw;
     }
 
+    public boolean newGroup(String groupName){
+        return false;
+    }
+
     public boolean addFilter(String groupName,String filter){
         boolean get = false;
         for(FilterGroup f: filterGroups){
