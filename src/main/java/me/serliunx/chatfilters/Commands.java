@@ -31,6 +31,9 @@ public class Commands implements CommandExecutor {
             case "list":
                 listAllGroups(sender);
                 break;
+            case "add":
+                addFilter(args,sender);
+                break;
             default:
                 showHelp(sender);
         }
@@ -46,6 +49,25 @@ public class Commands implements CommandExecutor {
     private void listAllGroups(CommandSender sender){
         for(FilterGroup f:plugin.getFilters().getFilterGroups()){
             Message.sendMessage(sender,f.getGroupName());
+        }
+    }
+
+    private void addFilter(String[] args,CommandSender sender){
+        String groupName;
+        String filter;
+
+        if(!(args.length == 3)){
+            showHelp(sender);
+            return;
+        }
+
+        groupName = args[1];
+        filter = args[2];
+
+        if(!plugin.getFilters().addFilter(groupName,filter)){
+            Message.sendMessage(sender,plugin.getLang().getTranslate("filters_add_failure"));
+        }else{
+            Message.sendMessage(sender,plugin.getLang().getTranslate("filters_add_successfully"));
         }
     }
 }

@@ -5,6 +5,8 @@
 filters_load_failure: "过滤器载入失败,请检查你的配置文件格式是否有误。"
 reloaded: "&a插件配置,语言文件及过滤器已重载."
 no_permission: "&c你无法这样做!"
+filters_add_failure: "&c过滤器增加失败."
+filters_add_successfully: "&a过滤器增加成功."
 help_information:
   - "&c1"
   - "&c1"

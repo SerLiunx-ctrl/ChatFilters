@@ -73,4 +73,19 @@ public class FiltersManager {
         }
         return raw;
     }
+
+    public boolean addFilter(String groupName,String filter){
+        boolean get = false;
+        for(FilterGroup f: filterGroups){
+            if(!f.getGroupName().equals(groupName))
+                break;
+            else{
+                if(!f.addValue(filter)){
+                    return false;
+                }
+                get = true;
+            }
+        }
+        return get;
+    }
 }
