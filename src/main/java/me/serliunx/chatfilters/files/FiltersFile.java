@@ -40,6 +40,6 @@ public class FiltersFile implements IFiles{
     }
 
     public void saveConfigFile() throws IOException{
-
+        getConfiguration().save(filtersFile);
     }
 }
