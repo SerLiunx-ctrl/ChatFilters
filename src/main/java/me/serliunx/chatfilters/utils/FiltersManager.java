@@ -76,6 +76,7 @@ public class FiltersManager {
 
     public boolean newGroup(String groupName){
         return false;
+
     }
 
     public boolean addFilter(String groupName,String filter){

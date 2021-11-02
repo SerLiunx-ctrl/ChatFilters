@@ -37,7 +37,7 @@ public class Commands implements CommandExecutor {
             case "add":
                 addFilter(args,sender);
                 break;
-            case "new":
+            case "newgroup":
                 newGroup(args,sender);
                 break;
             case "save":
@@ -63,8 +63,12 @@ public class Commands implements CommandExecutor {
     }
 
     private void newGroup(String[] args,CommandSender sender){
-        if(!(args.length == 2))
+        if(!(args.length == 2)){
             showHelp(sender);
+            return;
+        }
+       if(!plugin.getFilters().newGroup(args[1]))
+           Message.sendMessage(sender,plugin.getLang().getTranslate("filterGroup_already_in"));
     }
 
     private void saveToFile(CommandSender sender){
@@ -97,6 +101,7 @@ public class Commands implements CommandExecutor {
             Message.sendMessage(sender,plugin.getLang().getTranslate("filters_add_failure"));
         }else{
             Message.sendMessage(sender,plugin.getLang().getTranslate("filters_add_successfully"));
+            plugin.filterEdited = true;
         }
     }
 }
