@@ -5,9 +5,6 @@ import me.serliunx.chatfilters.utils.Message;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
-
-import java.io.IOException;
 
 public class Commands implements CommandExecutor {
     private final ChatFilters plugin;
@@ -76,13 +73,7 @@ public class Commands implements CommandExecutor {
             Message.sendMessage(sender,plugin.getLang().getTranslate("filters_not_edited"));
             return;
         }
-        try{
-            plugin.getFiltersFile().saveConfigFile();
-        }catch(IOException ex){
-            plugin.getLogger().info("save configs failure");
-            if(sender instanceof Player)
-                Message.sendMessage(sender,plugin.getLang().getTranslate("filtersFile_save_failure"));
-        }
+
     }
 
     private void addFilter(String[] args,CommandSender sender){
