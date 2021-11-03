@@ -20,6 +20,7 @@ public class LanguageFile implements IFiles{
     /*
     首次载入或重载配置文件
      */
+
     @Override
     public void reloadConfig(boolean onReload) {
         if(langConfigFile == null || onReload)

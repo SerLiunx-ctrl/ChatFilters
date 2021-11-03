@@ -6,8 +6,6 @@ import me.serliunx.chatfilters.files.LanguageFile;
 import me.serliunx.chatfilters.utils.FiltersManager;
 
 import me.serliunx.chatfilters.utils.Language;
-import me.serliunx.chatfilters.utils.Message;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.IOException;
@@ -20,6 +18,7 @@ public final class ChatFilters extends JavaPlugin {
     public Language lang;
     public boolean useMysql = false;
     public boolean filterEdited = false;
+    public boolean isOffline = false;
 
     @Override
     public void onEnable() {
@@ -69,5 +68,6 @@ public final class ChatFilters extends JavaPlugin {
     private void register(){
         this.getServer().getPluginManager().registerEvents(new AsyncPlayerChat(this),this);
         Objects.requireNonNull(this.getCommand("cf")).setExecutor(new Commands(this));
+
     }
 }
