@@ -5,6 +5,7 @@ import me.serliunx.chatfilters.files.FiltersFile;
 
 import org.bukkit.configuration.file.FileConfiguration;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -81,6 +82,7 @@ public class FiltersManager {
 
     public boolean addFilter(String groupName,String filter){
         boolean get = false;
+        List<String> env;
         for(FilterGroup f: filterGroups){
             if(!f.getGroupName().equals(groupName))
                 break;
@@ -89,8 +91,21 @@ public class FiltersManager {
                     return false;
                 }
                 get = true;
+                env = this.config.getStringList(groupName+".values");
+                env.add(filter);
+
+               this.config.set(groupName+".values",env);
             }
         }
         return get;
+    }
+
+    public boolean saveFile(){
+        try{
+            file.saveConfigFile();
+        }catch(IOException ex){
+            return false;
+        }
+        return true;
     }
 }

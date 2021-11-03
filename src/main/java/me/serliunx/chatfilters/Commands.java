@@ -54,9 +54,16 @@ public class Commands implements CommandExecutor {
 
     //
     private void listAllGroups(CommandSender sender){
+        Message.sendMessage(sender,"&b&l============================");
+        String color;
         for(FilterGroup f:plugin.getFilters().getFilterGroups()){
-            Message.sendMessage(sender,f.getGroupName());
+            if(f.getEnable())
+                color = "&a&l+";
+            else
+                color = "&c&l-";
+            Message.sendMessage(sender,color+"  &7[ &e"+f.getGroupName()+"&b | &a"+f.getSkipPermission()+" &7]");
         }
+        Message.sendMessage(sender,"&b&l============================");
     }
 
     private void newGroup(String[] args,CommandSender sender){
@@ -72,6 +79,11 @@ public class Commands implements CommandExecutor {
         if(!plugin.filterEdited){
             Message.sendMessage(sender,plugin.getLang().getTranslate("filters_not_edited"));
             return;
+        }
+
+        if(plugin.getFilters().saveFile()){
+            Message.sendMessage(sender,plugin.getLang().getTranslate("filtersFile_save_successfully"));
+            plugin.filterEdited = false;
         }
 
     }

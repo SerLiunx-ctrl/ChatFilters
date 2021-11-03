@@ -10,6 +10,7 @@ filters_add_successfully: "&a过滤器增加成功."
 filters_not_edited: "&c你没有改变过任何过滤器的设置."
 filterGroup_already_in: "&c该过滤器已存在."
 filtersFile_save_failure: "&c过滤器配置保存失败."
+filtersFile_save_successfully: "&a过滤器配置保存成功!"
 help_information:
   - "&c1"
   - "&c1"
