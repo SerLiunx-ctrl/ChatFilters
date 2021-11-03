@@ -5,8 +5,10 @@
 jdk: 17
 
 主要指令: 
-/cf   -  permission: chatfilters.admin
-    -reload             // 重载插件
-    -add <过滤器组ID>     //在指定过滤器组新增过滤器
-    -list               //列出所有的过滤器组.
+/cf
+permission: chatfilters.admin 
+-reload              // 重载插件
+-add <组> <过滤器>    //在指定过滤器组新增过滤器
+-newgroup <组名>     //新建一个过滤器组
+-list               //列出所有的过滤器组.
 
