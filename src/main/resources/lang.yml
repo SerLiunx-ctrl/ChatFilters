@@ -2,16 +2,30 @@
 # ChatFilters 语言文件
 #
 
-filters_load_failure: "过滤器载入失败,请检查你的配置文件格式是否有误。"
 reloaded: "&a插件配置,语言文件及过滤器已重载."
 no_permission: "&c你无法这样做!"
+
+filters_load_failure: "过滤器载入失败,请检查你的配置文件格式是否有误。"
+
 filters_add_failure: "&c过滤器增加失败."
 filters_add_successfully: "&a过滤器增加成功."
+
+filters_delete_failure: "&c过滤器删除失败."
+filters_delete_successfully: "&a过滤器删除成功."
+
 filters_not_edited: "&c你没有改变过任何过滤器的设置."
 filterGroup_already_in: "&c该过滤器已存在."
 filtersFile_save_failure: "&c过滤器配置保存失败."
 filtersFile_save_successfully: "&a过滤器配置保存成功!"
+
+cmd_usage_cfadd: "&c正确用法: /cf add <组名> <过滤器> &d| &e给指定组增加一个过滤器"
+cmd_usage_cfdelete: "&c正确用法: /cf delete <组名> <过滤器> &d| &e删除指定组的指定过滤器"
+
 help_information:
-  - "&c1"
-  - "&c1"
-  - "&c1"
+  - "&b&l====================================="
+  - "&e   CHATFILTERS - &fby SerLiunx"
+  - "&6/cf reload &e  -  重新加载本插件的所有配置."
+  - "&6/cf list &e  -  列出所有已加载的过滤器组."
+  - "&6/cf add <组> <过滤器> &e  -  给指定组增加一个过滤器."
+  - "&6/cf delete <组名> <过滤器> &e  -  删除指定组的指定过滤器."
+  - "&b&l====================================="

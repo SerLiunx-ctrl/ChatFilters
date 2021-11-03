@@ -34,6 +34,9 @@ public class Commands implements CommandExecutor {
             case "add":
                 addFilter(args,sender);
                 break;
+            case "delete":
+                deleteFilter(args, sender);
+                break;
             case "newgroup":
                 newGroup(args,sender);
                 break;
@@ -89,21 +92,33 @@ public class Commands implements CommandExecutor {
     }
 
     private void addFilter(String[] args,CommandSender sender){
-        String groupName;
-        String filter;
-
+        String groupName,filter;
         if(!(args.length == 3)){
-            showHelp(sender);
+            Message.sendMessage(sender,plugin.getLang().getTranslate("cmd_usage_cfadd"));
             return;
         }
-
         groupName = args[1];
         filter = args[2];
-
         if(!plugin.getFilters().addFilter(groupName,filter)){
             Message.sendMessage(sender,plugin.getLang().getTranslate("filters_add_failure"));
         }else{
             Message.sendMessage(sender,plugin.getLang().getTranslate("filters_add_successfully"));
+            plugin.filterEdited = true;
+        }
+    }
+
+    private void deleteFilter(String[] args, CommandSender sender){
+        String groupName,filter;
+        if(!(args.length == 3)){
+            Message.sendMessage(sender,plugin.getLang().getTranslate("cmd_usage_cfdelete"));
+            return;
+        }
+        groupName = args[1];
+        filter = args[2];
+        if(!plugin.getFilters().deleteFilter(groupName,filter)){
+            Message.sendMessage(sender,plugin.getLang().getTranslate("filters_delete_failure"));
+        }else{
+            Message.sendMessage(sender,plugin.getLang().getTranslate("filters_delete_successfully"));
             plugin.filterEdited = true;
         }
     }

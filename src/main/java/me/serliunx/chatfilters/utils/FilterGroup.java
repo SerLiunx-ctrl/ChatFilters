@@ -64,4 +64,12 @@ public class FilterGroup{
         }
         return false;
     }
+
+    public boolean deleteValue(String s){
+        if(values.contains(s)){
+            values.remove(s);
+            return true;
+        }
+        return false;
+    }
 }

@@ -77,7 +77,6 @@ public class FiltersManager {
 
     public boolean newGroup(String groupName){
         return false;
-
     }
 
     public boolean addFilter(String groupName,String filter){
@@ -95,6 +94,26 @@ public class FiltersManager {
                 env.add(filter);
 
                this.config.set(groupName+".values",env);
+            }
+        }
+        return get;
+    }
+
+    public boolean deleteFilter(String groupName,String filter){
+        boolean get = false;
+        List<String> env;
+        for(FilterGroup f:filterGroups){
+            if(!f.getGroupName().equals(groupName))
+                break;
+            else{
+                if(!f.deleteValue(filter)){
+                    return false;
+                }
+                get = true;
+                env = this.config.getStringList(groupName+".values");
+                env.remove(filter);
+
+                this.config.set(groupName+".values",env);
             }
         }
         return get;

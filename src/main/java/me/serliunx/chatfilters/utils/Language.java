@@ -21,12 +21,12 @@ public class Language {
     public Language(ChatFilters plugin,LanguageFile file){
         this.plugin = plugin;
         this.file = file;
+        this.config = file.getConfiguration();
         loadFromFile();
     }
 
     public void loadFromFile(){
         file.reloadConfig(true);
-        this.config = file.getConfiguration();
         lang.clear();
         langList.clear();
         for (String s: config.getKeys(false)){

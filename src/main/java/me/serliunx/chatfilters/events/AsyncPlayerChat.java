@@ -2,6 +2,7 @@ package me.serliunx.chatfilters.events;
 
 import me.serliunx.chatfilters.ChatFilters;
 
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
@@ -16,5 +17,8 @@ public class AsyncPlayerChat implements Listener {
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent evt){
         evt.setMessage(this.plugin.getFilters().replaceString(evt.getMessage()));
+
+        Player p = evt.getPlayer();
+
     }
 }
