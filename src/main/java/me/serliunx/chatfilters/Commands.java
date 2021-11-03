@@ -17,8 +17,10 @@ public class Commands implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if(!cmd.getName().equalsIgnoreCase("cf"))
             return  false;
-        if(!sender.hasPermission("chatfilters.admin"))
+        if(!sender.hasPermission("chatfilters.admin")){
+            Message.sendMessage(sender,plugin.getLang().getTranslate("no_permission"));
             return false;
+        }
         if(args.length < 1){
             showHelp(sender);
             return false;
@@ -71,11 +73,16 @@ public class Commands implements CommandExecutor {
 
     private void newGroup(String[] args,CommandSender sender){
         if(!(args.length == 2)){
-            showHelp(sender);
+            Message.sendMessage(sender,plugin.getLang().getTranslate("cmd_usage_cfnewgroup"));
             return;
         }
+
        if(!plugin.getFilters().newGroup(args[1]))
            Message.sendMessage(sender,plugin.getLang().getTranslate("filterGroup_already_in"));
+       else{
+           Message.sendMessage(sender,plugin.getLang().getTranslate("filterGroup_add_successfully"));
+           plugin.filterEdited = true;
+       }
     }
 
     private void saveToFile(CommandSender sender){

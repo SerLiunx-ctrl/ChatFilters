@@ -4,6 +4,7 @@ import me.serliunx.chatfilters.ChatFilters;
 import me.serliunx.chatfilters.files.FiltersFile;
 
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -61,13 +62,15 @@ public class FiltersManager {
         return this.filterGroups;
     }
 
-    public String replaceString(String raw){
+    public String replaceString(String raw, Player player){
         for(FilterGroup f: filterGroups){
-//            plugin.getLogger().info(f.getGroupName());
             if(!f.getEnable()) break;
             for(String s:f.getValues()){
                 if(raw.contains(s)){
-//                    plugin.getLogger().info("find one!");
+                    if(f.getSkipPermission() == null)
+                        break;
+                    if(player.hasPermission(f.getSkipPermission()))
+                        break;
                     raw = raw.replace(s,f.getReplace());
                 }
             }
@@ -76,7 +79,32 @@ public class FiltersManager {
     }
 
     public boolean newGroup(String groupName){
-        return false;
+        boolean ex = false;
+        for(FilterGroup f: getFilterGroups()){
+            if(groupName.equals(f.getGroupName())){
+                ex = true;
+                break;
+            }
+        }
+        if(ex)
+            return false;
+        List<String> env = new ArrayList<>();
+        env.add("none");
+        filterGroups.add(new FilterGroup(groupName,"per.here",
+                false,"*",env));
+
+        this.config.createSection(groupName);
+        this.config.createSection(groupName+".skip-permission");
+        this.config.createSection(groupName+".enable");
+        this.config.createSection(groupName+".replace-by");
+        this.config.createSection(groupName+".values");
+
+        this.config.set(groupName+".skip-permission","per.here");
+        this.config.set(groupName+".enable",false);
+        this.config.set(groupName+".replace-by","*");
+        this.config.set(groupName+".values",env);
+
+        return true;
     }
 
     public boolean addFilter(String groupName,String filter){
