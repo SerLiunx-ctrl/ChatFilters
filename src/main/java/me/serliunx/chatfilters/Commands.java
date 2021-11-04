@@ -53,6 +53,9 @@ public class Commands implements CommandExecutor {
             case "switch":
                 switchStatus(args,sender);
                 break;
+            case "replace":
+                setReplace(args, sender);
+                break;
             default:
                 showHelp(sender);
         }
@@ -164,5 +167,19 @@ public class Commands implements CommandExecutor {
             plugin.filterEdited = true;
         }
 
+    }
+
+    private void setReplace(String[] args,CommandSender sender){
+        if(!(args.length == 3)){
+            Message.sendMessage(sender,this.plugin.getLang().getTranslate("cmd_usage_replace"));
+            return;
+        }
+
+        if(!plugin.getFilters().setReplacement(args[1],args[2])){
+            Message.sendMessage(sender,plugin.getLang().getTranslate("filters_setReplace_failure"));
+        }else{
+            Message.sendMessage(sender,plugin.getLang().getTranslate("filters_setReplace_successfully"));
+            plugin.filterEdited = true;
+        }
     }
 }

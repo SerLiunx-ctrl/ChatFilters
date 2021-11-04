@@ -180,6 +180,20 @@ public class FiltersManager {
         return re;
     }
 
+    public boolean setReplacement(String groupName,String replacement){
+        boolean get = false;
+        for(FilterGroup f:filterGroups){
+            if(!f.getGroupName().equals(groupName))
+                break;
+            else{
+                f.setReplace(replacement);
+                get = true;
+                this.config.set(groupName+".replace",replacement);
+            }
+        }
+        return get;
+    }
+
     public boolean saveFile(){
         try{
             file.saveConfigFile();
