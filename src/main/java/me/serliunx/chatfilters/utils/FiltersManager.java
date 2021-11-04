@@ -161,6 +161,25 @@ public class FiltersManager {
         return get;
     }
 
+    public List<Boolean> switchEnable(String groupName){
+        List<Boolean> re = new ArrayList<>();
+        boolean status = false;
+        boolean get = false;
+        for(FilterGroup f:filterGroups){
+            if(!f.getGroupName().equals(groupName))
+                break;
+            else{
+                f.setEnable(!f.getEnable());
+                get = true;
+                status = f.getEnable();
+                this.config.set(groupName+".enable",f.getEnable());
+            }
+        }
+        re.add(status);
+        re.add(get);
+        return re;
+    }
+
     public boolean saveFile(){
         try{
             file.saveConfigFile();

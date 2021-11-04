@@ -6,6 +6,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
+import java.util.List;
+
 public class Commands implements CommandExecutor {
     private final ChatFilters plugin;
 
@@ -47,6 +49,9 @@ public class Commands implements CommandExecutor {
                 break;
             case "save":
                 saveToFile(sender);
+                break;
+            case "switch":
+                switchStatus(args,sender);
                 break;
             default:
                 showHelp(sender);
@@ -102,14 +107,11 @@ public class Commands implements CommandExecutor {
     }
 
     private void addFilter(String[] args,CommandSender sender){
-        String groupName,filter;
         if(!(args.length == 3)){
             Message.sendMessage(sender,plugin.getLang().getTranslate("cmd_usage_cfadd"));
             return;
         }
-        groupName = args[1];
-        filter = args[2];
-        if(!plugin.getFilters().addFilter(groupName,filter)){
+        if(!plugin.getFilters().addFilter(args[1],args[2])){
             Message.sendMessage(sender,plugin.getLang().getTranslate("filters_add_failure"));
         }else{
             Message.sendMessage(sender,plugin.getLang().getTranslate("filters_add_successfully"));
@@ -118,14 +120,11 @@ public class Commands implements CommandExecutor {
     }
 
     private void deleteFilter(String[] args, CommandSender sender){
-        String groupName,filter;
         if(!(args.length == 3)){
             Message.sendMessage(sender,plugin.getLang().getTranslate("cmd_usage_cfdelete"));
             return;
         }
-        groupName = args[1];
-        filter = args[2];
-        if(!plugin.getFilters().deleteFilter(groupName,filter)){
+        if(!plugin.getFilters().deleteFilter(args[1],args[2])){
             Message.sendMessage(sender,plugin.getLang().getTranslate("filters_delete_failure"));
         }else{
             Message.sendMessage(sender,plugin.getLang().getTranslate("filters_delete_successfully"));
@@ -134,19 +133,36 @@ public class Commands implements CommandExecutor {
     }
 
     private void setPermission(String[] args,CommandSender sender){
-        String groupName,permission;
         if(!(args.length == 3)){
             Message.sendMessage(sender,plugin.getLang().getTranslate("cmd_usage_cfper"));
             return;
         }
 
-        groupName = args[1];
-        permission = args[2];
-        if(!plugin.getFilters().setPermission(groupName,permission)){
+        if(!plugin.getFilters().setPermission(args[1],args[2])){
             Message.sendMessage(sender,plugin.getLang().getTranslate("filters_addPer_failure"));
         }else{
             Message.sendMessage(sender,plugin.getLang().getTranslate("filters_addPer_successfully"));
             plugin.filterEdited = true;
         }
+    }
+
+    private void switchStatus(String[] args,CommandSender sender){
+        if(!(args.length == 2)){
+            Message.sendMessage(sender,this.plugin.getLang().getTranslate("cmd_usage_switch"));
+            return;
+        }
+
+        List<Boolean> re = plugin.getFilters().switchEnable(args[1]);
+
+        if(!re.get(1)){
+            Message.sendMessage(sender,plugin.getLang().getTranslate("filters_switch_failure"));
+        }else{
+            if(re.get(0))
+                Message.sendMessage(sender,plugin.getLang().getTranslate("filters_switch_successfully_enable"));
+            else
+                Message.sendMessage(sender,plugin.getLang().getTranslate("filters_switch_successfully_disable"));
+            plugin.filterEdited = true;
+        }
+
     }
 }

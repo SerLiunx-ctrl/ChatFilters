@@ -37,12 +37,11 @@ public class FilterGroup{
         return this.values;
     }
 
-    public void setGroupName(String s){
-        this.groupName = s;
-    }
-
     public void setSkipPermission(String s){
-        this.skipPermission = s;
+        if(s.equals("null"))
+            this.skipPermission = null;
+        else
+            this.skipPermission = s;
     }
 
     public void setReplace(String s){
@@ -51,10 +50,6 @@ public class FilterGroup{
 
     public void setEnable(boolean b){
         this.enable = b;
-    }
-
-    public void setValues(List<String> l){
-        this.values = l;
     }
 
     public boolean addValue(String s){

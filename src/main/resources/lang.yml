@@ -2,32 +2,38 @@
 # ChatFilters 语言文件
 #
 
-reloaded: "&a插件配置,语言文件及过滤器已重载."
-no_permission: "&c你无法这样做!"
+reloaded: "&d[&e聊天过滤&d] &a插件配置,语言文件及过滤器已重载."
+no_permission: "&d[&e聊天过滤&d] &c你无法这样做!"
 
-filters_load_failure: "过滤器载入失败,请检查你的配置文件格式是否有误。"
+filters_load_failure: "&d[&e聊天过滤&d] 过滤器载入失败,请检查你的配置文件格式是否有误。"
 
-filters_add_failure: "&c过滤器增加失败."
-filters_add_successfully: "&a过滤器增加成功."
+filters_add_failure: "&d[&e聊天过滤&d] &c过滤器增加失败."
+filters_add_successfully: "&d[&e聊天过滤&d] &a过滤器增加成功."
 
-filters_delete_failure: "&c过滤器删除失败."
-filters_delete_successfully: "&a过滤器删除成功."
+filters_delete_failure: "&d[&e聊天过滤&d] &c过滤器删除失败."
+filters_delete_successfully: "&d[&e聊天过滤&d] &a过滤器删除成功."
 
-filters_addPer_failure: "&c权限增加失败."
-filters_addPer_successfully: "&a权限增加成功."
+filters_addPer_failure: "&d[&e聊天过滤&d] &c权限增加失败."
+filters_addPer_successfully: "&d[&e聊天过滤&d] &a权限增加成功."
 
-filters_not_edited: "&c你没有改变过任何过滤器的设置."
+filters_switch_failure: "&d[&e聊天过滤&d] &c状态切换失败."
+filters_switch_successfully_enable: "&d[&e聊天过滤&d] &a状态切换成功: &2已启用"
+filters_switch_successfully_disable: "&d[&e聊天过滤&d] &a状态切换成功: &c已禁用"
 
-filterGroup_already_in: "&c该过滤器已存在."
-filterGroup_add_successfully: "&a过滤器增加成功, 现在你可以更改他的状态以及权限等.使用&e/cf&a查看帮助."
 
-filtersFile_save_failure: "&c过滤器配置保存失败."
-filtersFile_save_successfully: "&a过滤器配置保存成功!"
+filters_not_edited: "&d[&e聊天过滤&d] &c你没有改变过任何过滤器的设置."
+
+filterGroup_already_in: "&d[&e聊天过滤&d] &c该过滤器已存在."
+filterGroup_add_successfully: "&d[&e聊天过滤&d] &a过滤器增加成功, 现在你可以更改他的状态以及权限等.使用&e/cf&a查看帮助."
+
+filtersFile_save_failure: "&d[&e聊天过滤&d] &c过滤器配置保存失败."
+filtersFile_save_successfully: "&d[&e聊天过滤&d] &a过滤器配置保存成功!"
 
 cmd_usage_cfadd: "&c正确用法: /cf add <组名> <过滤器> &d| &e给指定组增加一个过滤器"
 cmd_usage_cfdelete: "&c正确用法: /cf delete <组名> <过滤器> &d| &e删除指定组的指定过滤器"
 cmd_usage_cfnewgroup: "&c正确用法: /cf newgroup <组名> &d| &e新增一个过滤器组"
 cmd_usage_cfper: "&c正确用法: /cf per <组名> <权限> &d| &e设置指定组的权限"
+cmd_usage_switch: "&c正确用法: /cf switch <组名> &d| &e切换指定组的状态&7(&a启用&7或&c禁用)"
 
 help_information:
   - "&b&l====================================="

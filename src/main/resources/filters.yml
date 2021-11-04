@@ -12,7 +12,7 @@ default:
   values:
     - "nt"
 another-group:
-  skip-permission: ""
+  skip-permission: null
   enable: true
   replace-by: "我爱你"
   values:
