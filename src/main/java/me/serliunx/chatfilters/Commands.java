@@ -42,6 +42,9 @@ public class Commands implements CommandExecutor {
             case "newgroup":
                 newGroup(args,sender);
                 break;
+            case "per":
+                setPermission(args, sender);
+                break;
             case "save":
                 saveToFile(sender);
                 break;
@@ -126,6 +129,23 @@ public class Commands implements CommandExecutor {
             Message.sendMessage(sender,plugin.getLang().getTranslate("filters_delete_failure"));
         }else{
             Message.sendMessage(sender,plugin.getLang().getTranslate("filters_delete_successfully"));
+            plugin.filterEdited = true;
+        }
+    }
+
+    private void setPermission(String[] args,CommandSender sender){
+        String groupName,permission;
+        if(!(args.length == 3)){
+            Message.sendMessage(sender,plugin.getLang().getTranslate("cmd_usage_cfper"));
+            return;
+        }
+
+        groupName = args[1];
+        permission = args[2];
+        if(!plugin.getFilters().setPermission(groupName,permission)){
+            Message.sendMessage(sender,plugin.getLang().getTranslate("filters_addPer_failure"));
+        }else{
+            Message.sendMessage(sender,plugin.getLang().getTranslate("filters_addPer_successfully"));
             plugin.filterEdited = true;
         }
     }

@@ -147,6 +147,20 @@ public class FiltersManager {
         return get;
     }
 
+    public boolean setPermission(String groupName,String per){
+        boolean get = false;
+        for(FilterGroup f:filterGroups){
+            if(!f.getGroupName().equals(groupName))
+                break;
+            else{
+                f.setSkipPermission(per);
+                get = true;
+                this.config.set(groupName+".skip-permission",per);
+            }
+        }
+        return get;
+    }
+
     public boolean saveFile(){
         try{
             file.saveConfigFile();

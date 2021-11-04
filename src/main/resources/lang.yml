@@ -13,6 +13,9 @@ filters_add_successfully: "&a过滤器增加成功."
 filters_delete_failure: "&c过滤器删除失败."
 filters_delete_successfully: "&a过滤器删除成功."
 
+filters_addPer_failure: "&c权限增加失败."
+filters_addPer_successfully: "&a权限增加成功."
+
 filters_not_edited: "&c你没有改变过任何过滤器的设置."
 
 filterGroup_already_in: "&c该过滤器已存在."
@@ -24,11 +27,13 @@ filtersFile_save_successfully: "&a过滤器配置保存成功!"
 cmd_usage_cfadd: "&c正确用法: /cf add <组名> <过滤器> &d| &e给指定组增加一个过滤器"
 cmd_usage_cfdelete: "&c正确用法: /cf delete <组名> <过滤器> &d| &e删除指定组的指定过滤器"
 cmd_usage_cfnewgroup: "&c正确用法: /cf newgroup <组名> &d| &e新增一个过滤器组"
+cmd_usage_cfper: "&c正确用法: /cf per <组名> <权限> &d| &e设置指定组的权限"
 
 help_information:
   - "&b&l====================================="
   - "&e   CHATFILTERS - &fby SerLiunx"
   - "&6/cf reload &e  -  重新加载本插件的所有配置."
+  - "&6/cf save &e  -  保存所有做出的改动."
   - "&6/cf list &e  -  列出所有已加载的过滤器组."
   - "&6/cf add <组> <过滤器> &e  -  给指定组增加一个过滤器."
   - "&6/cf delete <组> <过滤器> &e  -  删除指定组的指定过滤器."
