@@ -188,7 +188,7 @@ public class FiltersManager {
             else{
                 f.setReplace(replacement);
                 get = true;
-                this.config.set(groupName+".replace",replacement);
+                this.config.set(groupName+".replace-by",replacement);
             }
         }
         return get;
