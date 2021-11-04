@@ -20,7 +20,6 @@ filters_switch_failure: "&d[&e聊天过滤&d] &c状态切换失败."
 filters_switch_successfully_enable: "&d[&e聊天过滤&d] &a状态切换成功: &2已启用"
 filters_switch_successfully_disable: "&d[&e聊天过滤&d] &a状态切换成功: &c已禁用"
 
-
 filters_not_edited: "&d[&e聊天过滤&d] &c你没有改变过任何过滤器的设置."
 
 filterGroup_already_in: "&d[&e聊天过滤&d] &c该过滤器已存在."
@@ -43,4 +42,6 @@ help_information:
   - "&6/cf list &e  -  列出所有已加载的过滤器组."
   - "&6/cf add <组> <过滤器> &e  -  给指定组增加一个过滤器."
   - "&6/cf delete <组> <过滤器> &e  -  删除指定组的指定过滤器."
+  - "&6/cf per <组> <权限> &e  -  设置指定组的权限."
+  - "&6/cf switch <组> &e  -  切换指定组的状态."
   - "&b&l====================================="
