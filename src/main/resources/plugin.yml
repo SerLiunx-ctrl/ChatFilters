@@ -3,6 +3,8 @@ version: '${project.version}'
 main: me.serliunx.chatfilters.ChatFilters
 api-version: 1.17
 authors: [ SerLiunx ]
+softdepend:
+  - PlaceholderAPI
 commands:
   cf:
     description: main command.

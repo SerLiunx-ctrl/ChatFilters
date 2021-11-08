@@ -42,6 +42,7 @@ public class FiltersManager {
     private void loadFromMysql(){
         if(!plugin.useMysql)
             return;
+
         plugin.getLogger().info("loaded from mysql.");
     }
 
