@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.util.Objects;
 
 public final class ChatFilters extends JavaPlugin {
+    public final String version = "1.0.0";
     public FiltersFile filtersFile;
     public FiltersManager filtersManager;
     public LanguageFile langFile;
@@ -62,6 +63,10 @@ public final class ChatFilters extends JavaPlugin {
 
     public Language getLang(){
         return this.lang;
+    }
+
+    public String getVersion(){
+        return this.version;
     }
 
     private void builder(){

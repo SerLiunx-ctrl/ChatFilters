@@ -14,6 +14,8 @@ public class AsyncPlayerChat implements Listener {
 
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent evt){
+        if(evt.getPlayer().isOp())
+            return;
         evt.setMessage(this.plugin.getFilters().replaceString(evt.getMessage(), evt.getPlayer()));
     }
 }
