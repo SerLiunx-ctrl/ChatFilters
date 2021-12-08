@@ -6,17 +6,3 @@ version: "1.0-SNAPSHOT"
 
 #是否启用本插件
 enable: true
-
-#是否启用mysql数据库
-use-mysql: false
-#用户名
-mysql_userName: "root"
-#密码
-mysql_passWord: "root"
-#链接信息: 请将 localhost:3306 替换成你的数据库地址及端口, DataBaseName 替换成你的数据库名称.
-mysql_url: "jdbc:mysql://localhost:3306/DataBaseName"
-#默认创建的数据表名称
-mysql_tableName: "chatfilters"
-
-#是否启用use-SQLite 优先级小于mysql
-use-SQLite: false

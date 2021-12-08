@@ -39,16 +39,8 @@ public class FiltersManager {
        }
     }
 
-    private void loadFromMysql(){
-        if(!plugin.useMysql)
-            return;
-
-        plugin.getLogger().info("loaded from mysql.");
-    }
-
     public void reload(){
         loadFromFile();
-        loadFromMysql();
     }
 
     public FilterGroup getFilterGroup(String name){
